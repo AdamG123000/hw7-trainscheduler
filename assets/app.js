@@ -51,7 +51,23 @@ $("#add-train").on("click", function(event){
             destination : trainDestination,
             frequency : trainFrequency,
             time : trainTime
-        }
+        };
 
-    };
-})
+        //upload the train data to the database
+        database.ref().push(trainDetail);
+
+        //console log
+        console.log("Temporary object train values");
+        console.log(trainDetail.name);
+        console.log(trainDestination.destination);
+        console.log(trainDetail.frequency);
+        console.log(trainDetail.time);
+
+        //clear all the values from the input area when the submit button is clicked
+        $("#train-input").val("");
+        $("#destination-input").val("");
+        $("#time-input").val("");
+        $("#frequency-input").val("");
+
+    }
+});
